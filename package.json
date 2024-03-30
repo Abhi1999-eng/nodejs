@@ -2,11 +2,14 @@
   "name": "nodejs_personal",
   "version": "1.0.0",
   "description": "",
-  "main": "hello.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node hello.js"
+    "start": "node index"
   },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
 }
