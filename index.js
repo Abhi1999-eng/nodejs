@@ -1,18 +1,20 @@
 const http = require('http')
 const fs = require('fs')
-
+const url = require('url')
 
 const myServer = http.createServer((req, res) => {
-	const url = req.url
+
+	const myUrl = url.parse(req.url, true)
+	console.log(myUrl.query.name);
 	// Log the incoming request
-	const log = `New request received on : ${new Date()} at ${url}\n`
+	const log = `New request received on : ${new Date()} at ${myUrl.pathname}\n`
 
 	// Append the log to the file
 	fs.appendFile('log.txt', log, err => {
 		if (err) {
 			console.error('Error writing to log file:', err)
 		} else {
-			switch (url) {
+			switch (myUrl.pathname) {
 				case '/':
 					res.end('This is home page')
 					break;
@@ -22,7 +24,7 @@ const myServer = http.createServer((req, res) => {
 					break;
 
 				default:
-					res.end(`This is ${url} page`)
+					res.end(`This is ${myUrl.pathname} page`)
 					break;
 			}
 		}
