@@ -1,16 +1,14 @@
 const express = require('express')
-const port = 3000
+const port = 8000
 
 const app = express()
 
-app.get('/', (req, res) => {
-	res.send('hello world')
-})
-app.get('/about', (req, res) => {
-	res.send('this is about page')
+//Routes
+app.get('/', function (req, res) {
+	res.send("Hello World")
 })
 
-
-app.listen(port, () => {
-	console.log(`Server started on port` + 3000)
+app.listen(port, function (err) {
+	if (err) console.log("Error in server setup:", err)
+	console.log("Server listening on port", port)
 })
