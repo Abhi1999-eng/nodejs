@@ -20,8 +20,9 @@ const myServer = http.createServer((req, res) => {
 				case '/about':
 					res.end('This is about page')
 					break;
+
 				default:
-					res.end('404 Page not found')
+					res.end(`This is ${url} page`)
 					break;
 			}
 		}
